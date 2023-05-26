@@ -21,16 +21,18 @@ void main() {
     ChangeNotifierProvider(
       //you can subscribe to its changes using change notifier
       create: (_) => ChapterProvider(),
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Vanila Test',
+    return const MaterialApp(
+      title: 'Bhagwad GIta',
       home: HomePage(),
     );
   }
