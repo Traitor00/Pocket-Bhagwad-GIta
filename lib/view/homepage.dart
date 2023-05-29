@@ -1,4 +1,5 @@
 import 'package:bhagwadgita/api/chapproviders.dart';
+import 'package:bhagwadgita/view/chapterspage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -80,7 +81,11 @@ class _HomePageState extends State<HomePage> {
                           width: 2, color: Color.fromARGB(255, 233, 164, 60)),
                       borderRadius: BorderRadius.circular(20)),
 
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ChapterDetail(
+                            chapterNumber: chapter.chapterNumber)));
+                  },
                   tileColor: Colors.orange[100],
                   title: Padding(
                     padding: const EdgeInsets.only(bottom: 10),

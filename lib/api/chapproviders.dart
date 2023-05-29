@@ -19,4 +19,23 @@ class ChapterProvider extends ChangeNotifier {
       print("Unable to fetch chapters");
     }
   }
+
+  //List<Chapter> chaptersdata = [];
+  Chapter? _chapterdata;
+
+  Chapter? get chapterdata => _chapterdata;
+  Future<void> fetchChapterdetail(int chapterNumber) async {
+    try {
+      final url = "https://bhagavadgitaapi.in/chapter/$chapterNumber";
+      final response = await http.get(Uri.parse(url));
+
+      if (response.statusCode == 200) {
+        final jsonData = json.decode(response.body);
+        _chapterdata = Chapter.fromJson(jsonData);
+        notifyListeners();
+      }
+    } catch (error) {
+      print("Unable to fetch chapters");
+    }
+  }
 }
