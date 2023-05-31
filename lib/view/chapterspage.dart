@@ -1,4 +1,5 @@
 import 'package:bhagwadgita/api/chapproviders.dart';
+import 'package:bhagwadgita/view/slokapage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -97,29 +98,38 @@ class ChapterDetail extends StatelessWidget {
                           separatorBuilder: (BuildContext context, int index) =>
                               const Divider(endIndent: 1),
                           itemBuilder: (context, index) {
-                            return Container(
-                              width: 150,
-                              margin: EdgeInsets.only(right: 20),
-                              height: 50,
-                              decoration: BoxDecoration(
-                                  color: Colors.orange[100],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20.0))),
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => SlokaPage(
+                                          chapterNumber: chapters.chapterNumber,
+                                          verse: index + 1,
+                                        )));
+                              },
                               child: Container(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(12.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Text(
-                                        "Verse: " + (index + 1).toString(),
-                                        style: TextStyle(
-                                            fontSize: 25,
-                                            color: Colors.deepOrange,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ],
+                                width: 150,
+                                margin: EdgeInsets.only(right: 20),
+                                height: 50,
+                                decoration: BoxDecoration(
+                                    color: Colors.orange[100],
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(20.0))),
+                                child: Container(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text(
+                                          "Verse: " + (index + 1).toString(),
+                                          style: TextStyle(
+                                              fontSize: 25,
+                                              color: Colors.deepOrange,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
