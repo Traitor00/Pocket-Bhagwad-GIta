@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:bhagwadgita/api/chapproviders.dart';
+import 'package:bhagwadgita/api/verseprovider.dart';
 import 'package:bhagwadgita/view/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -18,10 +19,17 @@ void main() {
   HttpOverrides.global =
       MyHttpOverrides(); // this line is for same errormentioned above
   runApp(
-    ChangeNotifierProvider(
-      //you can subscribe to its changes using change notifier
-      create: (_) => ChapterProvider(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ChapterProvider>(
+            create: (_) => ChapterProvider()),
+        ChangeNotifierProvider<VerseProvider>(create: (_) => VerseProvider()),
+      ],
       child: const MyApp(),
+
+      /*ChangeNotifierProvider(
+      //you can subscribe to its changes using change notifier
+      create: (_) => ChapterProvider(),*/
     ),
   );
 }
