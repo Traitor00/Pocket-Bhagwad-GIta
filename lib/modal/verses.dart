@@ -1,12 +1,12 @@
 class Slokas {
-  String id;
-  int chapter;
-  int verse;
-  String slok;
-  String transliteration;
-  Tej tej;
-  Siva siva;
-  Raman raman;
+  String? id;
+  int? chapter;
+  int? verse;
+  String? slok;
+  String? transliteration;
+  Tej? tej;
+  Siva? siva;
+  Raman? raman;
 
   Slokas({
     required this.id,
@@ -34,9 +34,9 @@ class Slokas {
 }
 
 class Raman {
-  String author;
-  String ht;
-  String et;
+  String? author;
+  String? ht;
+  String? et;
 
   Raman({
     required this.author,
@@ -54,8 +54,8 @@ class Raman {
 }
 
 class Tej {
-  String author;
-  String ht;
+  String? author;
+  String? ht;
 
   Tej({
     required this.author,
@@ -71,9 +71,9 @@ class Tej {
 }
 
 class Siva {
-  String author;
-  String et;
-  String ec;
+  String? author;
+  String? et;
+  String? ec;
 
   Siva({
     required this.author,

@@ -91,6 +91,7 @@ class ChapterDetail extends StatelessWidget {
                       height: 30,
                     ),
                     Container(
+                      padding: EdgeInsets.only(left: 10),
                       height: MediaQuery.of(context).size.height / 4,
                       child: ListView.separated(
                           scrollDirection: Axis.horizontal,
@@ -121,12 +122,14 @@ class ChapterDetail extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: <Widget>[
-                                        Text(
-                                          "Verse: " + (index + 1).toString(),
-                                          style: TextStyle(
-                                              fontSize: 25,
-                                              color: Colors.deepOrange,
-                                              fontWeight: FontWeight.bold),
+                                        Center(
+                                          child: Text(
+                                            "Verse: " + (index + 1).toString(),
+                                            style: TextStyle(
+                                                fontSize: 25,
+                                                color: Colors.deepOrange,
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
                                       ],
                                     ),

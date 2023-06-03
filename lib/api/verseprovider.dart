@@ -9,7 +9,7 @@ class VerseProvider extends ChangeNotifier {
   Slokas? get slokas => _slokas;
   Future<void> fetchSlokas(int chapterNumber, int verse) async {
     try {
-      final url = "https://bhagavadgitaapi.in/slok/$chapterNumber/$verse/";
+      final url = "https://bhagavadgitaapi.in/slok/$chapterNumber/$verse";
       final response = await http.get(Uri.parse(url));
 
       if (response.statusCode == 200) {
@@ -18,7 +18,7 @@ class VerseProvider extends ChangeNotifier {
         notifyListeners();
       }
     } catch (error) {
-      print("Unable to fetch data");
+      print("$error");
     }
   }
 }
